@@ -3,17 +3,28 @@ layout: compress
 ---
 
 <!DOCTYPE html>
-<html>
-{% include head.html %}
+<html lang="en">
+  {% include head.html %}
+  <body>
+    {% include navbar.html %}
 
-<body>
-  {% include navbar.html %}
-  {% include showcase.html %}
-  {% include about.html %}
-  {% include contact.html %}
-  <!--Footer begins here-->
-  {% include footer.html %}
-</body>
+    {% comment %}
+    首页渲染 hero.html，其它页面渲染各自的 content
+    {% endcomment %}
+    {% if page.url == "/" %}
+      {% include hero.html %}
+    {% else %}
+      {{ content }}
+    {% endif %}
+
+    {% if page.url == "/" %}
+      {% include about.html %}
+      {% include contact.html %}
+    {% endif %}
+
+    {% include footer.html %}
+  </body>
+</html>
 <script>
   var navItems = document.getElementsByClassName('navbar-item');
   var heroes = document.getElementsByClassName('hero');

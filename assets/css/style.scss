@@ -1,355 +1,463 @@
 ---
 ---
+@import "main";  // 引入 Bulma 及自定义变量/混入
+#hero {
+    position: relative;
+    overflow: hidden;
+  
+    // 背景图 + 模糊
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('{{ site.heroimage | relative_url }}')
+        no-repeat center/cover fixed;
+      filter: blur(6px);
+      z-index: 0;
+    }
+  
+    // 半透明黑色蒙层
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+  
+    // 提升文字/按钮至最上层
+    .hero-body {
+      position: relative;
+      z-index: 2;
+    }
+  
+    // 强制标题、副标题为白色
+    .title{
+        color: white !important;
+        margin-bottom:  2rem !important;
+      }
 
-@import "main.scss";
+    .subtitle {
+      color: white !important;
+      margin: 1rem 0 2rem !important;
+    }
+  }
+  
+  // ======================================
+  // 首页 Read More 按钮 专项样式
+  // ======================================
+  #hero {
+    .hero-button {
+      background-color: transparent !important;
+      border-color: white   !important;
+      color: white          !important;
+      transition: background-color 0.3s ease;
+  
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.2) !important;
+      }
+    }
+  }
+// …以下保留你其余的自定义样式…
 
+
+// 导航栏透明度
 #navbar {
-    opacity: 0.95;
+  opacity: 0.95;
 }
 
+// 活动菜单加粗
 .is-active {
-    font-weight: 600;
+  font-weight: 600;
 }
 
+// 下拉菜单位置微调
 .navbar-dropdown {
-    border: none;
-    right: 0;
-    left: auto;
+  border: none;
+  right: 0;
+  left: auto;
 }
 
+// 鼠标悬停样式
 a.navbar-item:hover,
 .navbar-link:hover {
-    background-color: rgba($color: #fff, $alpha: 0.25) !important;
-    color: white !important;
+  background-color: rgba(#fff, 0.25) !important;
+  color: white !important;
 }
 
+// 活动菜单悬停
 a.navbar-item.is-active {
-    background-color: rgba($color: #fff, $alpha: 0.25) !important;
-    color: white !important;
+  background-color: rgba(#fff, 0.25) !important;
+  color: white !important;
+
+  &:hover {
+    background-color: rgba(#fff, 0.25) !important;
+    color: grey;
+  }
+}
+
+// 下拉箭头颜色
+.navbar-link:not(.is-arrowless)::after {
+  border-color: grey;
+}
+
+// ======================================
+// Hero 部分
+// ======================================
+#hero {
+  // 底层渐变
+  background: rgb(0, 0, 0);
+  background: -moz-linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.75) 100%);
+  background: -webkit-linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.75) 100%);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.75) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000", endColorstr="#000000", GradientType=1);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    // 半透明蒙层 + 背景图 + 固定 + center/cover
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+      url('{{ site.heroimage | relative_url }}') no-repeat center/cover fixed;
+    // 模糊效果
+    backdrop-filter: blur(6px);
+    opacity: 0.25;
+    z-index: 1;
+  }
+
+  .hero-body {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+
+    
+  
+
+// 标题与副标题微调
+.title {
+  margin: auto 0.75rem !important;
+}
+.subtitle {
+  letter-spacing: 0.25rem;
+}
+
+// ======================================
+// About 区块
+// ======================================
+#about {
+  .image {
+    max-width: 20vmax;
+    margin: auto;
+
+    img {
+      border: 0.25rem dotted black;
+    }
+  }
+
+  a {
+    min-width: 25vmax;
+    margin: 0.5rem;
+  }
+}
+
+// ======================================
+// Contact 区块
+// ======================================
+#contact {
+  #contact-button {
+    margin: 0.5rem auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  svg {
+    transition: all 0.15s ease-in-out;
+    margin: auto 0.75vmax;
 
     &:hover {
-        background-color: rgba($color: #fff, $alpha: 0.25) !important;
-        color: grey;
+      transform: scale(1.10);
+      filter: opacity(0.75);
     }
+  }
+
+  hr {
+    background-color: black;
+  }
 }
 
-.navbar-link:not(.is-arrowless)::after {
-    border-color: grey;
-}
+// ======================================
+// Blog 区块
+// ======================================
+#blog {
+  .hero-body {
+    padding: 3rem 0.25rem 1rem 0.25rem;
+  }
 
+  .container {
+    margin: 1.5rem auto;
+  }
 
-#hero {
-    background: rgb(0, 0, 0);
-    background: -moz-linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.75) 100%);
-    background: -webkit-linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.75) 100%);
-    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.75) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000", endColorstr="#000000", GradientType=1);
+  #blog-card {
+    transition: all 0.25s ease;
+    margin-bottom: 0.5vmax;
+    transform: scale(0.85);
+    margin: 0 2.5vmax;
+    line-height: normal;
+    border-radius: 0.25rem;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 
-    &::before {
-        filter: blur(0.15rem);
-        background-image: url({{site.heroimage}});
+    &:hover {
+      transform: scale(0.875);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.25);
+    }
+
+    @media (max-width: 768px) {
+      transform: scale(1);
+      margin-bottom: 5vmax !important;
+
+      &:hover {
+        transform: scale(1.025);
+        margin-bottom: 5vmax !important;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.25);
+      }
+
+      .image {
+        padding-top: 50% !important;
+      }
+    }
+
+    .title {
+      margin: 0.5rem !important;
+    }
+
+    .content {
+      margin: 0.5rem;
+    }
+
+    .column {
+      display: grid;
+
+      .image {
+        border-radius: 0.25rem;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        background-attachment: fixed;
-        top: 0px;
-        right: 0px;
-        bottom: 0px;
-        left: 0px;
-        position: absolute;
-        opacity: 0.25;
-        content: "";
+      }
     }
-}
-.title {
-    margin: auto 0.75rem!important;
-}
-.subtitle {
-    letter-spacing: 0.25rem;
+  }
 }
 
-#about {
-    .image {
-        max-width: 20vmax;
-        margin: auto;
+// ======================================
+// Search 区块
+// ======================================
+#search {
+  border-bottom: 0.15rem solid;
 
-        img {
-            border: 0.25rem dotted black;
+  input {
+    border: none;
+    outline: none;
+    font-weight: 500 !important;
+
+    &::placeholder {
+      font-weight: 500;
+      color: grey;
+      letter-spacing: 0.25rem;
+    }
+  }
+
+  .button {
+    transition: all 0.25s ease;
+    &:focus {
+      outline: 0.25rem solid white;
+    }
+    border: none;
+  }
+}
+
+// ======================================
+// Footer
+// ======================================
+#footer {
+  #backtotop {
+    transition: all 0.25s ease;
+    width: 10rem;
+    padding: 0.25rem;
+    margin: auto auto 1rem;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  .container {
+    margin: auto;
+    padding: 1.5rem;
+    line-height: 1.25;
+
+    .column {
+      display: grid;
+      justify-content: center;
+
+      li {
+        list-style: circle;
+        list-style-position: outside;
+      }
+
+      a {
+        color: #7a7a7a;
+        &:hover {
+          color: white;
         }
+      }
+
+      figure {
+        border: 1.5px solid white;
+        border-radius: 50rem;
+        margin: auto;
+        transition: all 0.25s ease;
+        &:hover {
+          transform: scale(1.15);
+        }
+      }
     }
+  }
+
+  #credits {
+    padding: 0.75rem;
+    font-size: 0.85rem;
 
     a {
-        min-width: 25vmax;
-        margin: 0.5rem;
+      text-decoration: underline;
+      font-weight: bolder;
+      color: white;
     }
+  }
 }
 
-#contact {
-    #contact-button {
-        margin: 0.5rem auto;
-        display: flex;
-        justify-content: center;
+// ======================================
+// Project 区块
+// ======================================
+#project {
+  .columns {
+    .column {
+      border-radius: 0.5rem;
+      .image {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
     }
+  }
 
-    svg {
-        transition: all 0.15s ease-in-out;
-        margin: auto 0.75vmax;
+  #project-card {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    transform: scale(0.95);
+    transition: all 0.5s ease;
+    margin-bottom: 0.5rem !important;
+    display: inline-table;
 
-        &:hover {
-            transform: scale(1.10);
-            filter: opacity(0.75);
-        }
+    &:hover {
+      transform: scale(0.975);
+    }
+  }
+
+  .card {
+    transition: all 0.25s ease;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.9) !important;
+    }
+  }
+}
+
+// ======================================
+// Post 区块
+// ======================================
+#post {
+  @media (min-width: 768px) {
+    margin: auto 2.5vmax;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  #title {
+    text-decoration: none;
+  }
+
+  .title {
+    margin: auto;
+  }
+
+  #post-image {
+    border-radius: 0.25rem;
+  }
+
+  .subtitle {
+    letter-spacing: 0.05rem;
+  }
+
+  #description {
+    margin-bottom: 1.25vmax;
+  }
+
+  .tag {
+    margin: 0.15rem auto;
+  }
+
+  .content {
+    ol,
+    ul,
+    blockquote {
+      display: inline-block;
     }
 
     hr {
-        background-color: black;
+      background-color: grey;
     }
+
+    img,
+    iframe {
+      max-width: calc(100% - 25vw);
+      margin: 0.25rem auto;
+
+      @media (max-width: 768px) {
+        max-width: calc(100% - 5vw);
+      }
+    }
+
+    ul,
+    ol {
+      display: inline-block;
+    }
+  }
+
+  .container {
+    margin: 2.5rem auto;
+    word-break: break-word;
+    max-width: -webkit-fill-available;
+  }
+
+  #disqus_thread {
+    margin-top: 5vmax;
+  }
 }
 
-#blog {
-    .hero-body {
-        padding: 3rem 0.25rem 1rem 0.25rem;
-    }
-
-    .container {
-        margin: 1.5rem auto;
-    }
-
-    #blog-card {
-        transition: all 0.25s ease;
-        margin-bottom: 0.5vmax;
-        transform: scale(0.85);
-        margin-right: 2.5vmax;
-        margin-left: 2.5vmax;
-        line-height: normal;
-        border-radius: 0.25rem;
-        -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
-        -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
-        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
-
-        &:hover {
-            transform: scale(0.875);
-            -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.25);
-            -moz-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.25);
-            box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.25);
-        }
-
-        @media (max-width: 768px) {
-            transform: scale(1);
-            margin-bottom: 5vmax !important;
-
-            &:hover {
-                transform: scale(1.025);
-                margin-bottom: 5vmax !important;
-                -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.25);
-                -moz-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.25);
-                box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.25);
-            }
-
-            .image {
-                padding-top: 50% !important;
-            }
-        }
-
-        .title {
-            margin: 0.5rem !important;
-        }
-
-        .content {
-            margin: 0.5rem;
-        }
-
-        .column {
-            display: grid;
-
-            .image {
-                border-radius: 0.25rem;
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-            }
-        }
-    }
-}
-
-#search {
-    border-bottom: 0.15rem solid;
-
-    input {
-        border: none;
-        outline: none;
-        font-weight: 500 !important;
-
-        &::placeholder {
-            font-weight: 500;
-            color: grey;
-            letter-spacing: 0.25rem;
-        }
-    }
-
-    .button {
-        transition: all 0.25s ease;
-        &:focus {
-            outline: 0.25rem solid white;
-        }
-
-        border: none;
-    }
-}
-
-
-#footer {
-    #backtotop {
-        transition: all 0.25s ease;
-        width: 10rem;
-        padding: 0.25rem;
-        margin: auto auto 1rem auto;
-
-        &:hover {
-            transform: scale(1.05);
-        }
-    }
-
-    .container {
-        margin: auto;
-        padding: 1.5rem;
-        line-height: 1.25;
-
-        .column {
-            display: grid;
-            justify-content: center;
-
-            li {
-                list-style: circle;
-                list-style-position: outside;
-            }
-
-            a {
-                color: #7a7a7a;
-
-                &:hover {
-                    color: white;
-                }
-            }
-
-            figure {
-                border: 1.5px solid white;
-                border-radius: 50rem;
-                justify-content: center;
-                margin: auto;
-                transition: all 0.25s ease;
-                &:hover{
-                    transform: scale(1.15);
-                }
-            }
-        }
-    }
-
-    #credits {
-        padding: 0.75rem;
-        font-size: 0.85rem;
-
-        a {
-            text-decoration: underline;
-            font-weight: bolder;
-            color: white;
-        }
-    }
-}
-
-#project {
-    .columns {
-        .column {
-            border-radius: 0.5rem;
-            .image {
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-            }
-        }
-    }
-
-    #project-card {
-        -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
-        -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
-        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
-        transform: scale(0.95);
-        transition: all 0.5s ease;
-        margin-bottom: 0.5rem !important;
-        display: inline-table;
-        &:hover {
-            transform: scale(0.975);
-        }
-    }
-    .card {
-        transition: all 0.25s ease;
-        &:hover {
-            background-color: rgba($color: #000000, $alpha: 0.90)!important;
-        }
-    }
-}
-
-#post {
-    @media (min-width: 768px) {
-        margin: auto 2.5vmax;
-    }
-    a {
-        text-decoration: underline;
-    }
-    #title {
-        text-decoration: none;
-    }
-    .title {
-        margin: auto;
-    }
-    #post-image {
-        border-radius: 0.25rem;
-    }
-    .subtitle {
-        letter-spacing: 0.05rem;
-    }
-
-    #description {
-        margin-bottom: 1.25vmax;
-    }
-
-    .tag {
-        margin: 0.15rem auto;
-    }
-    .content {
-        ol, ul, blockquote {
-            display: inline-block;
-        }
-        hr{
-            background-color: grey;
-        }
-        img, iframe {
-            max-width: calc(100% - 25vw);
-            margin: 0.25rem auto;
-            @media (max-width: 768px) {
-                max-width: calc(100% - 5vw);
-            }
-        }
-        ul, ol {
-            display: inline-block;
-        }
-    }
-
-    .container {
-        margin: 2.5rem auto;
-        word-break: break-word;
-        max-width: -webkit-fill-available;
-    }
-
-    #disqus_thread {
-        margin-top: 5vmax;
-    }
-}
-
+// ======================================
+// 普通页面区块
+// ======================================
 #page-section {
-    .content {
-        ul, ol, blockquote {
-            display: inline-block;
-        }
+  .content {
+    ul,
+    ol,
+    blockquote {
+      display: inline-block;
     }
+  }
 }

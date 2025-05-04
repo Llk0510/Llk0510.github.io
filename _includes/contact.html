@@ -1,63 +1,62 @@
-<section class="hero is-fullheight has-text-centered" id="contact">
-    <div class="hero-body">
-        <div class="container">
-            {% unless site.facebook_username == %}
-            <a id="contact-button" href="https://m.me/{{site.facebook_username}}"
-                class="button is-rounded is-uppercase has-text-weight-normal is-black is-outlined has-text-weight-semibold column is-two-fifths"
-                target="_blank">
-                <i class="fab fa-facebook-messenger"></i>Ping me on Messenger
+<style>
+    .contact-section {
+      margin-top: 3rem;
+    }
+  
+    .contact-buttons {
+      margin-top: 2rem;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+  
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .contact-handle {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 0.5rem;
+    }
+  </style>
+  
+  <section class="hero is-fullheight has-text-centered" id="contact">
+    <div class="hero-body contact-section">
+      <div class="container">
+        <h2 class="title is-4 has-text-black">Contact Me</h2>
+  
+        <div class="buttons is-centered contact-buttons is-flex is-justify-content-center">
+          <div class="contact-item">
+            <a href="mailto:ll2229@cornell.edu" class="button is-black is-outlined is-rounded">
+              <i class="fas fa-envelope" style="margin-right: 8px;"></i>Email
             </a>
-            {% endunless %}
-            {% unless site.email == %}
-            <a id="contact-button" href="mailto:{{site.email}}"
-                class="button is-rounded is-uppercase has-text-weight-normal is-black is-outlined has-text-weight-semibold column is-two-fifths"
-                target="_blank">
-                <i class="fas fa-envelope"></i>Send me an Email
+            <div class="contact-handle">ll2229@cornell.edu</div>
+          </div>
+  
+          <div class="contact-item">
+            <a href="https://www.instagram.com/llk_kun" class="button is-black is-outlined is-rounded" target="_blank">
+              <i class="fab fa-instagram" style="margin-right: 8px;"></i>Instagram
             </a>
-            {% endunless %}
-            {% unless site.twitter_username == %}
-            <a id="contact-button" href="https://www.twitter.com/intent/tweet?screen_name={{site.twitter_username}}"
-                class="button is-rounded is-uppercase has-text-weight-normal is-black is-outlined has-text-weight-semibold column is-two-fifths"
-                target="_blank">
-                <i class="fab fa-twitter"></i>Tweet me on Twitter
+            <div class="contact-handle">@llk_kun</div>
+          </div>
+  
+          <div class="contact-item">
+            <a href="https://www.linkedin.com/in/linkun-lei" class="button is-black is-outlined is-rounded" target="_blank">
+              <i class="fab fa-linkedin" style="margin-right: 8px;"></i>LinkedIn
             </a>
-            {% endunless %}
-            <hr>
-            <h3 class="is-size-5 is-uppercase has-text-weight-semibold has-text-black is-marginless">
-                You Can find me here
-            </h3>
-            <div class="column is-full is-size-3">
-                {% unless site.facebook_username == %}
-                <a href="http://www.facebook.com/{{site.facebook_username}}" target="_blank" class="has-text-black"><i class="fab fa-facebook"></i></a>
-                {% endunless %}
-                {% unless site.twitter_username == %}
-                <a href="https://twitter.com/intent/user?screen_name={{site.twitter_username}}" target="_blank" class="has-text-black"><i class="fab fa-twitter"></i></a>
-                {% endunless %}
-                {% unless site.instagram_username ==  %}
-                <a href="http://www.instagram.com/{{site.instagram_username}}" target="_blank" class="has-text-black"><i class="fab fa-instagram"></i></a>
-                {% endunless %}
-                {% unless site.linkedin_username ==  %}
-                <a href="http://www.linkedin.com/in/{{site.linkedin_username}}" target="_blank" class="has-text-black"><i class="fab fa-linkedin"></i></a>
-                {% endunless %}
-                {% unless site.github_username ==  %}
-                <a href="http://www.github.com/{{site.github_username}}" target="_blank" class="has-text-black"><i class="fab fa-github"></i></a>
-                {% endunless %}
-                {% unless site.youtube_channel_id ==  %}
-                <a href="http://www.youtube.com/channel/{{site.youtube_channel_id}}" target="_blank" class="has-text-black"><i class="fab fa-youtube"></i></a>
-                {% endunless %}
-                {% unless site.reddit_username ==  %}
-                <a href="http://www.reddit.com/u/{{site.reddit_username}}" target="_blank" class="has-text-black"><i class="fab fa-reddit"></i></a>
-                {% endunless %}
-                {% unless site.behance_username ==  %}
-                <a href="http://www.behance.com/{{site.behance_username}}" target="_blank" class="has-text-black"><i class="fab fa-behance"></i></a>
-                {% endunless %}
-                {% unless site.dribbble_username ==  %}
-                <a href="http://www.dribbble.com/{{site.dribbble_username}}" target="_blank" class="has-text-black"><i class="fab fa-dribbble"></i></a>
-                {% endunless %}
-                {% unless site.spotify_username ==  %}
-                <a href="http://open.spotify.com/user/{{site.spotify_username}}" target="_blank" class="has-text-black"><i class="fab fa-spotify"></i></a>
-                {% endunless %}
-            </div>
+            <div class="contact-handle">linkun-lei</div>
+          </div>
+  
+          <div class="contact-item">
+            <a href="https://github.com/Llk0510" class="button is-black is-outlined is-rounded" target="_blank">
+              <i class="fab fa-github" style="margin-right: 8px;"></i>GitHub
+            </a>
+            <div class="contact-handle">Llk0510</div>
+          </div>
         </div>
+      </div>
     </div>
-</section>
+  </section>
+  

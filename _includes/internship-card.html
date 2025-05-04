@@ -1,0 +1,47 @@
+<style>
+  /* 自定义间距和文字对齐样式 */
+  .internship-card {
+    margin: 1.5rem;       /* 增加卡片之间的间距 */
+  }
+  .internship-description {
+    text-align: left;     /* 描述靠左 */
+  }
+</style>
+
+<div class="columns is-mobile is-multiline is-centered">
+  {% for item in site.data.internships %}
+    <div
+      class="column
+             internship-card
+             has-text-centered
+             is-one-quarter-desktop
+             is-half-tablet
+             is-full-mobile"
+    >
+      <div class="card">
+        <figure class="image">
+          <!-- 使用 relative_url 确保本地/部署都能正确加载 -->
+          <img
+            class="internship-image"
+            src="{{ item.image | relative_url }}"
+            alt="{{ item.company }}"
+          >
+        </figure>
+        <div class="card-content">
+          <p class="subtitle is-6 has-text-grey has-text-centered">
+            {{ item.company }}
+          </p>
+          <p class="subtitle is-7 has-text-grey-light has-text-centered">
+            {{ item.period }}
+          </p>
+          <h2 class="title is-5 has-text-centered">
+            {{ item.title }}
+          </h2>
+          <p class="internship-description">
+            {{ item.description }}
+          </p>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>

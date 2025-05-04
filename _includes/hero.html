@@ -1,0 +1,26 @@
+<!-- /_includes/hero.html -->
+<section
+  id="hero"
+  class="hero is-fullheight is-bold"
+  style="background-image: url('{{ site.heroimage | relative_url }}');"
+>
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <!-- 主标题，下方多留 2rem 空间 -->
+      <h1 class="title is-spaced has-text-white" style="margin-bottom:2rem;">
+        {{ site.title }}
+      </h1>
+      <!-- 副标题，上下都多留空间 -->
+      <h2 class="subtitle has-text-white" style="margin:1rem 0 2rem;">
+        {{ site.description }}
+      </h2>
+      <hr class="has-background-white" style="opacity:0.3; max-width:200px; margin:1.5rem auto;">
+      <a
+        href="{{ '/#about' | relative_url }}"
+        class="button is-large is-outlined hero-button"
+      >
+        READ MORE
+      </a>
+    </div>
+  </div>
+</section>

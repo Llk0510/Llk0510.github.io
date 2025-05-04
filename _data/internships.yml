@@ -1,0 +1,17 @@
+- company: Changjiang Securities
+  title: Quantitative Research Intern
+  image: "/assets/images/changjiang.jpg"
+  period: Nov 2023 – Jan 2024
+  description: Developed Python scripts for ETF factor synthesis with 35% speedup; performed back-testing and performance evaluation; analyzed 1500+ U.S. funds to identify A-share market gaps; created a rule-based fund classification system using Wind and Excel.
+
+- company: AEGON-Industrial Fund
+  title: Trading Intern
+  image: "/assets/images/xingquan.jpg"
+  period: Jul – Sep 2023
+  description: Built multi-factor strategies using Python and ML with 30% annualized return in back-testing (2012–2023); analyzed 300+ single factors and high-frequency signals; supported trader workflows and non-public subscription processes.
+
+- company: China Securities
+  title: Equity Research Intern (Automotive)
+  image: "/assets/images/china.jpg"
+  period: Dec 2022 – Feb 2023
+  description: Wrote research reports on automotive tech firms; analyzed markets for third-party testing and inertial navigation; participated in reverse roadshows and on-site company visits (e.g., Changan, Zongshen) to assess growth potential and strategy.
